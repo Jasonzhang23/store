@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MenFashion Store - 男士服装电商</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>MenFashion</h1>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">首页</a>
+                <a href="category.html" class="nav-link">商品分类</a>
+                <a href="category.html?category=1" class="nav-link">T恤</a>
+                <a href="category.html?category=2" class="nav-link">衬衫</a>
+                <a href="category.html?category=3" class="nav-link">裤子</a>
+                <a href="category.html?category=4" class="nav-link">外套</a>
+                <a href="category.html?category=5" class="nav-link">鞋子</a>
+            </div>
+            <div class="nav-actions">
+                <a href="favorites.html" class="nav-icon" id="favorites-icon">
+                    <span class="icon">❤️</span>
+                    <span class="badge" id="favorites-count">0</span>
+                </a>
+                <a href="cart.html" class="nav-icon" id="cart-icon">
+                    <span class="icon">🛒</span>
+                    <span class="badge" id="cart-count">0</span>
+                </a>
+                <div class="user-menu" id="user-menu">
+                    <button class="user-btn" id="user-btn">登录</button>
+                    <div class="dropdown-menu" id="dropdown-menu">
+                        <a href="profile.html">个人中心</a>
+                        <a href="history.html">浏览历史</a>
+                        <a href="#" id="logout-btn">退出登录</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <!-- 轮播图 -->
+        <section class="hero-section">
+            <div class="carousel" id="carousel">
+                <div class="carousel-container">
+                    <div class="carousel-slide active">
+                        <img src="../images/banner1.jpg" alt="新品上市">
+                        <div class="carousel-content">
+                            <h2>新品上市</h2>
+                            <p>2024春季新品，时尚与舒适的完美结合</p>
+                            <a href="category.html" class="btn btn-primary">立即购买</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../images/banner2.jpg" alt="限时特惠">
+                        <div class="carousel-content">
+                            <h2>限时特惠</h2>
+                            <p>精选商品低至5折，限时抢购</p>
+                            <a href="category.html" class="btn btn-primary">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../images/banner3.jpg" alt="品质保证">
+                        <div class="carousel-content">
+                            <h2>品质保证</h2>
+                            <p>7天无理由退换，品质有保障</p>
+                            <a href="category.html" class="btn btn-primary">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev" id="prev-btn">‹</button>
+                <button class="carousel-btn next" id="next-btn">›</button>
+                <div class="carousel-dots" id="carousel-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 商品分类 -->
+        <section class="categories-section">
+            <div class="container">
+                <h2 class="section-title">商品分类</h2>
+                <div class="categories-grid">
+                    <div class="category-card" data-category="1">
+                        <div class="category-icon">👕</div>
+                        <h3>T恤</h3>
+                        <p>舒适透气的T恤</p>
+                    </div>
+                    <div class="category-card" data-category="2">
+                        <div class="category-icon">👔</div>
+                        <h3>衬衫</h3>
+                        <p>商务休闲衬衫</p>
+                    </div>
+                    <div class="category-card" data-category="3">
+                        <div class="category-icon">👖</div>
+                        <h3>裤子</h3>
+                        <p>时尚休闲裤</p>
+                    </div>
+                    <div class="category-card" data-category="4">
+                        <div class="category-icon">🧥</div>
+                        <h3>外套</h3>
+                        <p>保暖时尚外套</p>
+                    </div>
+                    <div class="category-card" data-category="5">
+                        <div class="category-icon">👟</div>
+                        <h3>鞋子</h3>
+                        <p>舒适时尚鞋履</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 热门商品 -->
+        <section class="products-section">
+            <div class="container">
+                <h2 class="section-title">热门商品</h2>
+                <div class="products-grid" id="hot-products">
+                    <!-- 商品卡片将通过JavaScript动态加载 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 新品上市 -->
+        <section class="products-section">
+            <div class="container">
+                <h2 class="section-title">新品上市</h2>
+                <div class="products-grid" id="new-products">
+                    <!-- 商品卡片将通过JavaScript动态加载 -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <p>MenFashion Store致力于为男士提供优质的服装选择，让每一位顾客都能找到适合自己的风格。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>客户服务</h3>
+                    <ul>
+                        <li><a href="#">购物指南</a></li>
+                        <li><a href="#">配送方式</a></li>
+                        <li><a href="#">退换货政策</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>关注我们</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">微信</a>
+                        <a href="#" class="social-link">微博</a>
+                        <a href="#" class="social-link">抖音</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MenFashion Store. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 登录模态框 -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close" id="close-login">&times;</span>
+            <h2>用户登录</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">邮箱</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">密码</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">登录</button>
+                <p class="form-footer">
+                    还没有账号？<a href="#" id="show-register">立即注册</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- 注册模态框 -->
+    <div class="modal" id="register-modal">
+        <div class="modal-content">
+            <span class="close" id="close-register">&times;</span>
+            <h2>用户注册</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-username">用户名</label>
+                    <input type="text" id="register-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">邮箱</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">密码</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">确认密码</label>
+                    <input type="password" id="register-confirm-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">注册</button>
+                <p class="form-footer">
+                    已有账号？<a href="#" id="show-login">立即登录</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/components.js"></script>
+    <script>
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化轮播图
+            initCarousel();
+            
+            // 初始化商品展示
+            loadHotProducts();
+            loadNewProducts();
+            
+            // 初始化用户状态
+            initUserState();
+            
+            // 绑定事件
+            bindEvents();
+        });
+
+        // 轮播图功能
+        function initCarousel() {
+            const carousel = document.getElementById('carousel');
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const dots = carousel.querySelectorAll('.dot');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            // 自动播放
+            setInterval(nextSlide, 5000);
+            
+            // 按钮事件
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+            
+            // 点击指示器
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                });
+            });
+        }
+
+        // 加载热门商品
+        async function loadHotProducts() {
+            try {
+                const products = await API.getProducts({ is_hot: 1, limit: 4 });
+                const container = document.getElementById('hot-products');
+                container.innerHTML = products.map(product => createProductCard(product)).join('');
+            } catch (error) {
+                console.error('加载热门商品失败:', error);
+            }
+        }
+
+        // 加载新品
+        async function loadNewProducts() {
+            try {
+                const products = await API.getProducts({ is_new: 1, limit: 4 });
+                const container = document.getElementById('new-products');
+                container.innerHTML = products.map(product => createProductCard(product)).join('');
+            } catch (error) {
+                console.error('加载新品失败:', error);
+            }
+        }
+
+        // 创建商品卡片
+        function createProductCard(product) {
+            return `
+                <div class="product-card" data-product-id="${product.id}">
+                    <div class="product-image">
+                        <img src="${product.image_url}" alt="${product.name}">
+                        <div class="product-actions">
+                            <button class="action-btn favorite-btn" onclick="toggleFavorite(${product.id})">
+                                <span class="icon">❤️</span>
+                            </button>
+                            <button class="action-btn cart-btn" onclick="addToCart(${product.id})">
+                                <span class="icon">🛒</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-price">
+                            <span class="current-price">¥${product.price}</span>
+                            ${product.original_price ? `<span class="original-price">¥${product.original_price}</span>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 绑定事件
+        function bindEvents() {
+            // 分类卡片点击
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const categoryId = card.dataset.category;
+                    window.location.href = `category.html?category=${categoryId}`;
+                });
+            });
+
+            // 商品卡片点击
+            document.addEventListener('click', (e) => {
+                const productCard = e.target.closest('.product-card');
+                if (productCard && !e.target.closest('.product-actions')) {
+                    const productId = productCard.dataset.productId;
+                    window.location.href = `product.html?id=${productId}`;
+                }
+            });
+        }
+    </script>
+</body>
+</html> 
